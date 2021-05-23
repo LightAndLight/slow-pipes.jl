@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+cat /dev/urandom | tr -cd "[:print:]" | head -c 100000000 > input.txt
+ls -lah input.txt

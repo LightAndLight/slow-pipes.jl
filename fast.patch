@@ -1,0 +1,21 @@
+diff --git a/julia/main.jl b/julia/main.jl
+index 45aba06..2c68c57 100644
+--- a/julia/main.jl
++++ b/julia/main.jl
+@@ -1,7 +1,7 @@
+ const BUFFER_SIZE = 4096
+ const BUFFER = Vector{UInt8}(undef, BUFFER_SIZE)
+ 
+-function main()
++function main(stdin::IOStream)
+   ascii_histogram = Vector{Int64}(undef, 128); fill!(ascii_histogram, 0)
+   while !eof(stdin)
+     bytes_read = readbytes!(stdin, BUFFER, BUFFER_SIZE)
+@@ -20,4 +20,4 @@ function main()
+   println("")
+ end
+ 
+-main()
+\ No newline at end of file
++open(main, "/dev/stdin")
+\ No newline at end of file
